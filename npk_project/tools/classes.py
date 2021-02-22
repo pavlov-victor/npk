@@ -1,6 +1,8 @@
 import os
 import time
 
+from .functions import save_results
+
 
 class TestClass(object):
     """
@@ -33,12 +35,6 @@ class TestClass(object):
         tests_names = map(lambda x: x.split('.')[0], tests_path)
         self.tests_names = list(tests_names)
 
-    def save_results(self, result, name, tracks=[]):
-        with open('/results/' + name + '_result.txt', 'w+') as f:
-            f.write(f'{name}: result - {result}\n')
-            for track in tracks:
-                f.write(f'{name}: {track}')
-
     def check(self, test_name, data):
         mod = __import__('reviews.' + test_name)
         result = getattr(mod, test_name).result
@@ -60,12 +56,12 @@ class TestClass(object):
                         start = time.time()
                         self.check(test_name, data)
                         tracks.append(f'time - {time.time() - start}')
-                    self.save_results(
+                    save_results(
                         'success',
                         test_name,
                         tracks
                     )
                 else:
-                    self.save_results('test not right', test_name)
+                    save_results('test not right', test_name)
             except Exception as e:
-                self.save_results(f'failed', test_name, tracks=[f'error - {e}'])
+                save_results('failed', test_name, tracks=[f'error - {e}'])
