@@ -62,6 +62,6 @@ class TestClass(object):
                         tracks
                     )
                 else:
-                    save_results('test not right', test_name)
+                    save_results('result not right', test_name)
             except Exception as e:
                 save_results('failed', test_name, tracks=[f'error - {e}'])

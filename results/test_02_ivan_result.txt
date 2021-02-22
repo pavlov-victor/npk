@@ -1,2 +1,2 @@
 test_02_ivan: result - success
-test_02_ivan: time - 7.152557373046875e-06
+test_02_ivan: time - 9.775161743164062e-06
