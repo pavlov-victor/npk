@@ -1,0 +1,10 @@
+version: "3"
+
+services: 
+  server:
+    build: .
+    volumes: 
+      - ./results:/results
+      - ./tests:/code/tests
+      - ./reviews:/code/reviews
+    command: python main.py

@@ -1,0 +1,2 @@
+test_01_dima: result - failed
+test_01_dima: error - result() takes 1 positional argument but 2 were given

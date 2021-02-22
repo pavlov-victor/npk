@@ -1,0 +1,1 @@
+test_02_dima: result - test not right
